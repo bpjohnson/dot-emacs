@@ -8,3 +8,5 @@ A few of the libraries have external dependencies. Those are:
 
  - https://github.com/NicolasPetton/xref-js2
  - http://ternjs.net/doc/manual.html (expected to be installed in .emacs.d/tern )
+
+(Uses https://github.com/proofit404/company-tern for js autocomplete)
