@@ -85,6 +85,16 @@
          )
   )
 
+;; Find Files in a project (defined by .git directory, etc.)
+(use-package find-file-in-project
+  :bind (("M-f" . find-file-in-project)
+         ("M-F". find-file-in-current-directory)
+         )
+  :init (progn
+	  (setq ffip-prefer-ido-mode t)
+	  )
+  ) 
+
 (use-package smooth-scrolling)
 
 ;;Emacs 25 only
@@ -152,6 +162,14 @@
   :init (progn
 	  (add-hook 'after-init-hook (lambda ()
 				       (global-company-mode)
+				       (setq company-dabbrev-ignore-case nil
+					     company-dabbrev-code-ignore-case nil
+					     company-dabbrev-downcase nil
+					     company-idle-delay 0
+					     company-begin-commands '(self-insert-command)
+					     company-transformers '(company-sort-by-occurrence))
+				       (use-package company-quickhelp
+					 :config (company-quickhelp-mode 1))
 				       (use-package company-tern
 					 :defer nil
 					 :init (progn
@@ -256,4 +274,24 @@ This functions should be added to the hooks of major modes for programming."
 (use-package editorconfig
   ;;  :disabled t
   :demand t
+  )
+
+
+;; General-Close will close open parens, brackets, braces, quotes, etc.
+;; broken in js mode.
+(use-package general-close
+  :disabled t
+  :bind ("M-]" . general-close))
+
+
+;; Misc unpackaged functions
+(use-package myfun
+  :load-path "lisp/"
+  :ensure nil
+  :bind
+  (
+   ("C-c C-c" . bj/cleanup-buffer)
+   ("M-g g" . goto-line-with-feedback)
+   ("C-x n" . narrow-or-widen-dwim) ;; replace whole narrow keymap
+   )
   )

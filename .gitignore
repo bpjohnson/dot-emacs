@@ -3,6 +3,11 @@
 ############################
 
 #Add any ignores specific to this project here.
+network-security.data
+elpa
+places
+recentf
+smex-items
 
 
 ##############
