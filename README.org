@@ -1,0 +1,10 @@
+#+Title: Bryan's .emacs Stuff
+
+This is a work in progress. At the moment it's missing configs for org-mode, projectile, multiple-cursors, and a bunch of other stuff.
+
+Also, it's poorly organized and commented. So enjoy!
+
+A few of the libraries have external dependencies. Those are:
+
+ - https://github.com/NicolasPetton/xref-js2
+ - http://ternjs.net/doc/manual.html (expected to be installed in .emacs.d/tern )
